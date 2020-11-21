@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jessie Ferris, CS 535, Project #5</title>
+    <style>
+        .column {
+            display: inline-block;
+            vertical-align: top;
+        }
+        button {
+            border: none;
+            padding: 10px 15px 10px 15px; 
+            vertical-align: top;
+            color: white;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        .viewer {
+            background-color: darkblue;
+        }
+        .slideshow {
+            background-color: purple;
+        }
+        .buttons {
+            text-align: center;
+        }
+    </style>
+    
+</head>
+
+<img hidden src="tile.jpg" id="floorImg">
+<img hidden src="wallpaper.png" id="wallInImg">
+<img hidden src="brick.jpg" id="wallOutImg">
+<img hidden src="wood.jpg" id="woodImg">
+<img hidden src="pic1.png" id="pic1Img"> <!-- by Patrick Waldemar -->
+<img hidden src="pic2.png" id="pic2Img"> <!-- by Debra Hurd -->
+<img hidden src="pic3.png" id="pic3Img"> <!-- by Dianne Parks -->
+<img hidden src="pic4.png" id="pic4Img"> <!-- by Dianne Parks -->
+<img hidden src="ephoto1.png" id="ePhoto1Img"> <!-- by Robert Gutherie -->
+<img hidden src="ephoto2.png" id="ePhoto2Img"> <!-- by Lyla Clayre -->
+<img hidden src="ephoto3.png" id="ePhoto3Img"> <!-- by Susan Elizabeth Jones -->
+<img hidden src="ephoto4.png" id="ePhoto4Img"> <!-- by Dianne Parks -->
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+precision mediump float;
+
+attribute vec4 vPosition;
+attribute vec2 vTexCoord;
+
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
+
+varying vec2 fTexCoord;
+
+void main() {
+    fTexCoord = vTexCoord;
+    gl_Position = projectionMatrix * viewMatrix * vPosition;
+} 
+
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+uniform sampler2D texture;
+
+varying  vec2 fTexCoord;
+
+void main() {
+    gl_FragColor = texture2D( texture, fTexCoord );
+}
+
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="texmap.js"></script>
+
+<body>
+    <div class="column">
+        <canvas id="gl-canvas" width="600" height="500">
+            Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+    </div>
+    <div class="column" style="padding-left: 20px;">
+        <div class="buttons">
+            <h3>Change Viewing Position</h3>
+            <button class="viewer" id="left">Left</button>
+            <button class="viewer" id="middle">Middle</button>
+            <button class="viewer" id="right">Right</button>
+        </div>
+        <br>
+        <div class="buttons">
+            <h3>Slideshow Animation</h3>
+            <button class="slideshow" id="play">Play/Pause</button>
+            <button class="slideshow" id="previous">Previous</button>
+            <button class="slideshow" id="next">Next</button>
+            <p id="warning" style="color: red; display: none;">Slideshow must be paused!</p>
+        </div>
+    </div>
+    
+</body>
+</html>

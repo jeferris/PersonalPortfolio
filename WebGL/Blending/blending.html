@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jessie Ferris, CS 535, Project #6</title>
+    <style>
+        .column {
+            display: inline-block;
+            vertical-align: top;
+        }
+        button {
+            border: none;
+            padding: 10px 15px 10px 15px; 
+            vertical-align: top;
+            color: white;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        .frame {
+            background-color: purple;
+        }
+        .opt {
+            text-align: center;
+        }
+        option {
+            padding: 7px;
+        }
+    </style>
+</head>
+
+<img hidden src="wood.jpg" id="floorImg">
+<img hidden src="wallpaper.png" id="wallImg">
+<img hidden src="wallpaper1.png" id="wallImg1">
+<img hidden src="frame1.png" id="frame1">
+<img hidden src="frame2.png" id="frame2">
+<img hidden src="frame3.png" id="frame3">
+<img hidden src="frame4.png" id="frame4">
+<img hidden src="washington.png" id="pres1">
+<img hidden src="jefferson.png" id="pres2">
+<img hidden src="jackson.png" id="pres3">
+<img hidden src="madison.png" id="pres4">
+<img hidden src="reagan.png" id="pres5">
+<img hidden src="t_roosevelt.png" id="pres6">
+<img hidden src="f_roosevelt.png" id="pres7">
+<img hidden src="adams.png" id="pres8">
+<img hidden src="jfk.png" id="pres9">
+<img hidden src="eisenhower.png" id="pres10">
+<img hidden src="crownMoldingTop.png" id="crownTop">
+<img hidden src="crownMoldingBottom.png" id="crownBottom">
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+    precision mediump float;
+
+    attribute vec4 vPosition;
+    attribute vec2 vTexCoord;
+
+    uniform mat4 viewMatrix;
+    uniform mat4 projectionMatrix;
+
+    varying vec2 fTexCoord;
+
+    void main() {
+        fTexCoord = vTexCoord;
+        gl_Position = projectionMatrix * viewMatrix * vPosition;
+    } 
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+
+    uniform sampler2D texture;
+
+    varying  vec2 fTexCoord;
+
+    void main() {
+        gl_FragColor = texture2D( texture, fTexCoord );
+    }
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="blending.js"></script>
+
+<body>
+    <div class="column">
+        <canvas id="gl-canvas" width="800" height="500">
+            Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+    </div>
+    <div class="column" style="padding-left: 20px;">
+        <div class="opt">
+            <h3>Change the Frames</h3>
+            <select id="frame_menu" size="4">
+                <option value="frame1">Option 1</option>
+                <option value="frame2">Option 2</option>
+                <option value="frame3">Option 3</option>
+                <option value="frame4">Option 4</option>
+            </select>
+        </div>
+        <br>
+        <div class="opt">
+            <h3>Change the Presidents Shown</h3>
+            <button class="frame" id="left">Shift-Left</button>
+            <button class="frame" id="right">Shift-Right</button>
+        </div>
+    </div>
+</body>
+</html>
