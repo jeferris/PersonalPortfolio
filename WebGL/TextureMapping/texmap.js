@@ -1,16 +1,21 @@
 /* 
+ * This project makes use of functionality provided by
+ * Ed Angel and Dave Shreiner. A copy of the license can
+ * be found in the WebGL directory which is the parent 
+ * directory of this one. The original source for these files
+ * can be found at: https://www.cs.unm.edu/~angel/WebGL/7E/Common/. 
+ */
+
+ /* 
  * Jessie Ferris
+ * jeferris@crimson.ua.edu
  * CS 535
- * Project #5
- * Description: This program shows a room with tile floors 
- *              and walls that have brick on the outside and 
- *              wallpaper on the inside. The table has a picture 
- *              frame that displays a slideshow. The slideshow 
- *              can be shown automatically with the "play" and
- *              "pause" buttons or manually with the "next" and
- *              "previous" buttons. There are three available 
- *              views of the room: center, left at an angle, and 
- *              right at an angle.
+ * Project #6
+ * Description: This program displays a series of U.S. presidents. There 
+ *              are three frames on the walls and the style of frame can 
+ *              be switched between 4 options using the menu on the side.
+ *              The photos of the presidents can be rotated left or right 
+ *              to display photos in a circular fashion using the buttons.
  */
 
 "use strict"

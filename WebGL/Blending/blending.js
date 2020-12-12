@@ -1,5 +1,14 @@
 /* 
+ * This project makes use of functionality provided by
+ * Ed Angel and Dave Shreiner. A copy of the license can
+ * be found in the WebGL directory which is the parent 
+ * directory of this one. The original source for these files
+ * can be found at: https://www.cs.unm.edu/~angel/WebGL/7E/Common/. 
+ */
+
+ /* 
  * Jessie Ferris
+ * jeferris@crimson.ua.edu
  * CS 535
  * Project #6
  * Description: This program displays a series of U.S. presidents. There 
