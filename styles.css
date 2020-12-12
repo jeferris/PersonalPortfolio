@@ -50,3 +50,8 @@
     padding-top: 5%;
     text-align: center;
 }
+
+iframe {
+    width: 98%;
+    height: 600px;
+}
