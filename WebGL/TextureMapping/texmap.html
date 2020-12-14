@@ -14,14 +14,15 @@
     -->
     <style>
         .column {
-            display: inline-block;
             vertical-align: top;
+            text-align: center;
         }
         button {
             border: none;
-            padding: 10px 15px 10px 15px; 
+            padding: 2% 3% 2% 3%; 
             vertical-align: top;
             color: white;
+            text-align: center;
         }
         button:hover {
             cursor: pointer;
@@ -31,6 +32,8 @@
         }
         .slideshow {
             background-color: purple;
+            margin-bottom: 2%;
+            text-align: center;
         }
         .buttons {
             text-align: center;
@@ -92,11 +95,11 @@ void main() {
 
 <body>
     <div class="column">
-        <canvas id="gl-canvas" width="600" height="500">
+        <canvas id="gl-canvas" width="570" height="475">
             Oops ... your browser doesn't support the HTML5 canvas element
         </canvas>
     </div>
-    <div class="column" style="padding-left: 20px;">
+    <div class="column">
         <div class="buttons">
             <h3>Change Viewing Position</h3>
             <button class="viewer" id="left">Left</button>
@@ -107,11 +110,11 @@ void main() {
         <div class="buttons">
             <h3>Slideshow Animation</h3>
             <button class="slideshow" id="play">Play/Pause</button>
+            <br>
             <button class="slideshow" id="previous">Previous</button>
             <button class="slideshow" id="next">Next</button>
             <p id="warning" style="color: red; display: none;">Slideshow must be paused!</p>
         </div>
     </div>
-    
 </body>
 </html>

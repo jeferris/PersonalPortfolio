@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="project">
+        <iframe class="texmap" src="WebGL/TextureMapping/texmap.html" title="Texture Mapping">
+        </iframe>
+        <div class="texmap">
+            <script src="https://gist.github.com/jeferris/4f9de0487541e0b80d4aa3f79e7b51b9.js"></script>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } 
+            else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
